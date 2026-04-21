@@ -1,90 +1,75 @@
+/* Фон */
 body {
     font-family: Arial, sans-serif;
-    max-width: 420px;
-    margin: 40px auto;
-    padding: 10px;
-    color: #222;
-    background: linear-gradient(135deg, #c9e7ff, #e3f2ff, #f7fbff);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #b5d9ff, #d7ecff, #f2f9ff);
     background-attachment: fixed;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 25px;
+/* Контейнер 2 колонки */
+.container {
+    display: flex;
+    max-width: 1100px;
+    margin: 40px auto;
+    gap: 25px;
+    padding: 0 20px;
 }
 
-form {
+/* Левая панель */
+.left-panel {
+    flex: 1;
+}
+
+/* Правая панель */
+.right-panel {
+    flex: 1;
+}
+
+/* Карточки */
+form, .facts-box, .meal-box {
     background: white;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Заголовки */
+h1, h2 {
+    text-align: center;
+}
+
+/* Форма */
+form {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-label {
-    font-weight: bold;
-}
-
-.row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-input[type="number"],
-select {
+input, select {
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #fafafa;
+    border-radius: 6px;
 }
 
 button {
-    padding: 10px;
-    background: #333;
+    padding: 12px;
+    background: #2a6fdb;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 button:hover {
-    background: #555;
+    background: #1f5bb8;
 }
 
-/* РЕЗУЛЬТАТЫ */
-.result-box {
-    background: white;
-    margin-top: 25px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.result-box h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.result-line {
+/* Списки */
+.meal-list li, .facts-list li {
+    background: #f5faff;
+    padding: 8px 12px;
     margin-bottom: 8px;
-    font-size: 16px;
-}
-
-
-.meal-list {
-    margin-top: 15px;
-    padding-left: 20px;
-}
-
-.meal-list li {
-    margin-bottom: 6px;
-    font-size: 15px;
-    background: #ffffffaa;
-    padding: 6px 10px;
     border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border-left: 4px solid #2a6fdb;
 }

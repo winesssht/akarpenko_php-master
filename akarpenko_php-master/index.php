@@ -49,42 +49,6 @@ function getCarbs($calories, $protein, $fat) {
     return round($remaining / 4);
 }
 
-$mealsLose = [
-    "Owsianka z owocami i jogurtem naturalnym",
-    "Sałatka z kurczakiem i warzywami",
-    "Zupa krem z brokułów + grzanka pełnoziarnista",
-    "Łosoś pieczony + warzywa na parze"
-];
-
-$mealsMaintain = [
-    "Makaron pełnoziarnisty z kurczakiem i warzywami",
-    "Kanapki z jajkiem i awokado",
-    "Ryż + tofu + warzywa stir‑fry",
-    "Zupa pomidorowa z ryżem"
-];
-
-$mealsBuild = [
-    "Kurczak + ryż + warzywa",
-    "Jajecznica + pieczywo pełnoziarniste",
-    "Owsianka z masłem orzechowym",
-    "Tortilla z wołowiną i warzywami"
-];
-
-if ($goal === "lose") {
-    $mealList = $mealsLose;
-} elseif ($goal === "build") {
-    $mealList = $mealsBuild;
-} else {
-    $mealList = $mealsMaintain;
-}
-
-echo "<h3>Proponowane posiłki:</h3>";
-echo "<ul class='meal-list'>";
-foreach ($mealList as $meal) {
-    echo "<li>$meal</li>";
-}
-echo "</ul>";
-
 echo '<link rel="stylesheet" href="style.css">';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -96,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $activity = $_POST["activity"];
     $goal     = $_POST["goal"];
 
+    // --- OBLICZENIA ---
     $bmi      = getBMI($weight, $height);
     $bmiLabel = getBMILabel($bmi);
     $bmr      = getBMR($weight, $height, $age, $gender);
@@ -105,6 +70,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $fat      = getFat($target);
     $carbs    = getCarbs($target, $protein, $fat);
 
+    // --- POSIŁKI ---
+    $mealsLose = [
+        "Owsianka z owocami i jogurtem naturalnym",
+        "Sałatka z kurczakiem i warzywami",
+        "Zupa krem z brokułów + grzanka pełnoziarnista",
+        "Łosoś pieczony + warzywa na parze"
+    ];
+
+    $mealsMaintain = [
+        "Makaron pełnoziarnisty z kurczakiem i warzywami",
+        "Kanapki z jajkiem i awokado",
+        "Ryż + tofu + warzywa stir‑fry",
+        "Zupa pomidorowa z ryżem"
+    ];
+
+    $mealsBuild = [
+        "Kurczak + ryż + warzywa",
+        "Jajecznica + pieczywo pełnoziarniste",
+        "Owsianka z masłem orzechowym",
+        "Tortilla z wołowiną i warzywami"
+    ];
+
+    if ($goal === "lose") {
+        $mealList = $mealsLose;
+    } elseif ($goal === "build") {
+        $mealList = $mealsBuild;
+    } else {
+        $mealList = $mealsMaintain;
+    }
+
+    // --- WYNIKI ---
     echo '<div class="result-box">';
     echo "<h2>Wyniki</h2>";
     echo "<div class='result-line'>BMI: $bmi ($bmiLabel)</div>";
@@ -115,5 +111,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "<div class='result-line'>Tłuszcze: $fat g</div>";
     echo "<div class='result-line'>Węglowodany: $carbs g</div>";
     echo '</div>';
+
+    // --- POSIŁKI ---
+    echo "<div class='meal-box'>";
+    echo "<h3>Proponowane posiłki:</h3>";
+    echo "<ul class='meal-list'>";
+    foreach ($mealList as $meal) {
+        echo "<li>$meal</li>";
+    }
+    echo "</ul>";
+    echo "</div>";
 }
+
+
 ?>
