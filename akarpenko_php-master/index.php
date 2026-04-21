@@ -39,3 +39,19 @@ function getTargetCalories($tdee, $goal) { // cel diety
     if ($goal == "przyrost wagi") return $tdee + 300;
     return $tdee;
 }
+
+function getProtein($w, $goal) { // waga i cel diety
+    if ($goal == "utrata wagi") return round($w * 2.2);
+    if ($goal == "przyrost wagi") return round($w * 2.0);
+    return round($w * 1.6);
+}
+
+function getFat($calories){// kalorie
+    return round($calories * 0.25 / 9);
+}
+
+function getCarbs($calories, $protein, $fat){ // kalorie, białko i tłuszcze
+  $remaining = $calories - ($protein * 4) - ($fat * 9);
+  if ($remaining < 0) return 0;
+  return round($remaining / 4);
+}
