@@ -4,7 +4,8 @@ body {
     margin: 40px auto;
     padding: 10px;
     color: #222;
-    background: #f7f7f7;
+    background: linear-gradient(135deg, #c9e7ff, #e3f2ff, #f7fbff);
+    background-attachment: fixed;
 }
 
 h1 {
@@ -71,4 +72,19 @@ button:hover {
 .result-line {
     margin-bottom: 8px;
     font-size: 16px;
+}
+
+
+.meal-list {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.meal-list li {
+    margin-bottom: 6px;
+    font-size: 15px;
+    background: #ffffffaa;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }

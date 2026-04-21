@@ -49,6 +49,42 @@ function getCarbs($calories, $protein, $fat) {
     return round($remaining / 4);
 }
 
+$mealsLose = [
+    "Owsianka z owocami i jogurtem naturalnym",
+    "Sałatka z kurczakiem i warzywami",
+    "Zupa krem z brokułów + grzanka pełnoziarnista",
+    "Łosoś pieczony + warzywa na parze"
+];
+
+$mealsMaintain = [
+    "Makaron pełnoziarnisty z kurczakiem i warzywami",
+    "Kanapki z jajkiem i awokado",
+    "Ryż + tofu + warzywa stir‑fry",
+    "Zupa pomidorowa z ryżem"
+];
+
+$mealsBuild = [
+    "Kurczak + ryż + warzywa",
+    "Jajecznica + pieczywo pełnoziarniste",
+    "Owsianka z masłem orzechowym",
+    "Tortilla z wołowiną i warzywami"
+];
+
+if ($goal === "lose") {
+    $mealList = $mealsLose;
+} elseif ($goal === "build") {
+    $mealList = $mealsBuild;
+} else {
+    $mealList = $mealsMaintain;
+}
+
+echo "<h3>Proponowane posiłki:</h3>";
+echo "<ul class='meal-list'>";
+foreach ($mealList as $meal) {
+    echo "<li>$meal</li>";
+}
+echo "</ul>";
+
 echo '<link rel="stylesheet" href="style.css">';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
