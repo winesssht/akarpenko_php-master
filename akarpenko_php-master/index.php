@@ -26,12 +26,14 @@ function getBMR($w, $h, $a, $g) { // waga, wzrost, wiek, płeć
     }
 }
 
-function getTDEE($bmr, $activity){ // poziom aktywności
-  if ($activity == "siedzący tryb życia");
-  if ($activity == "lekka aktywność");
-  if ($activity == "umiarkowana aktywność");
-  if ($activity == "duża aktywność");
-  if ($activity == "bardzo duża aktywność");
+function getTDEE($bmr, $activity) {
+    if ($activity === "sedentary")   return round($bmr * 1.2);
+    if ($activity === "light")       return round($bmr * 1.375);
+    if ($activity === "moderate")    return round($bmr * 1.55);
+    if ($activity === "active")      return round($bmr * 1.725);
+    if ($activity === "very_active") return round($bmr * 1.9);
+    // default
+    return round($bmr * 1.2);
 }
 
 function getTargetCalories($tdee, $goal) { // cel diety
