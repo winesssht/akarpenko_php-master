@@ -1,7 +1,5 @@
 <?php
 
-// --- FUNKCJE ---
-
 function getBMI($weight, $height) {
     $h = $height / 100;
     return round($weight / ($h * $h), 1);
@@ -16,7 +14,6 @@ function getBMILabel($bmi) {
 
 function getBMR($w, $h, $a, $g) {
     $base = (10 * $w) + (6.25 * $h) - (5 * $a);
-
     if ($g === 'male') return round($base + 5);
     return round($base - 161);
 }
@@ -52,17 +49,16 @@ function getCarbs($calories, $protein, $fat) {
     return round($remaining / 4);
 }
 
-
-// --- OBRÓBKA FORMULARZA ---
+echo '<link rel="stylesheet" href="style.css">';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $gender   = $_POST["gender"] ?? "";
+    $gender   = $_POST["gender"];
     $age      = (int) $_POST["age"];
     $weight   = (float) $_POST["weight"];
     $height   = (float) $_POST["height"];
-    $activity = $_POST["activity"] ?? "sedentary";
-    $goal     = $_POST["goal"] ?? "maintain";
+    $activity = $_POST["activity"];
+    $goal     = $_POST["goal"];
 
     $bmi      = getBMI($weight, $height);
     $bmiLabel = getBMILabel($bmi);
@@ -83,7 +79,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "<div class='result-line'>Tłuszcze: $fat g</div>";
     echo "<div class='result-line'>Węglowodany: $carbs g</div>";
     echo '</div>';
-
-
 }
 ?>

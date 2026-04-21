@@ -26,6 +26,12 @@ label {
     font-weight: bold;
 }
 
+.row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 input[type="number"],
 select {
     padding: 8px;
@@ -46,12 +52,6 @@ button {
 
 button:hover {
     background: #555;
-}
-
-div {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
 }
 
 /* РЕЗУЛЬТАТЫ */

@@ -1,49 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kalkulator BMI</title>
+    <title>Kalkulator BMI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>kalkulator BMI Fitness</h1>
 
-    <form method="post" action="index.php">
-        <label>Płeć:</label>
-        <div>
-            <label><input type="radio" name="gender" value="male" checked> Mężczyzna</label>
-            <label><input type="radio" name="gender" value="female"> Kobieta</label>
-        </div>
+<h1>Kalkulator BMI Fitness</h1>
 
+<form method="post" action="index.php">
+    <label>Płeć:</label>
+    <div class="row">
+        <label><input type="radio" name="gender" value="male" checked> Mężczyzna</label>
+        <label><input type="radio" name="gender" value="female"> Kobieta</label>
+    </div>
 
-        <label>Wiek:</label>
-        <input type="number" name="age" placeholder="np. 28">
+    <label>Wiek:</label>
+    <input type="number" name="age" placeholder="np. 28">
 
-         <label>Waga (kg)</label>
-        <input type="number" name="weight" step="0.1" placeholder="np. 75">
+    <label>Waga (kg)</label>
+    <input type="number" name="weight" step="0.1" placeholder="np. 75">
 
-        <label>Wzrost (cm)</label>
-        <input type="number" name="height" step="0.1" placeholder="np. 170">
+    <label>Wzrost (cm)</label>
+    <input type="number" name="height" step="0.1" placeholder="np. 170">
 
-        <label>Aktywność</label> 
-        <select name="activity">
-            <option value="sedentary">Siedzący tryb życia</option>
-            <option value="light">Lekka</option>
-            <option value="moderate">Umiarkowana</option>
-            <option value="active">Wysoka</option>
-            <option value="very_active">Bardzo wysoka</option>
-        </select>%
+    <label>Aktywność</label>
+    <select name="activity">
+        <option value="sedentary">Siedzący tryb życia</option>
+        <option value="light">Lekka</option>
+        <option value="moderate">Umiarkowana</option>
+        <option value="active">Wysoka</option>
+        <option value="very_active">Bardzo wysoka</option>
+    </select>
 
-         <label>Cel</label>
-        <div>
-            <label><input type="radio" name="goal" value="lose"> Odchudzanie</label>
-            <label><input type="radio" name="goal" value="maintain" checked> Utrzymanie</label>
-            <label><input type="radio" name="goal" value="build"> Budowa mięśni</label>
-        </div>
+    <label>Cel</label>
+    <div class="row">
+        <label><input type="radio" name="goal" value="lose"> Odchudzanie</label>
+        <label><input type="radio" name="goal" value="maintain" checked> Utrzymanie</label>
+        <label><input type="radio" name="goal" value="build"> Budowa mięśni</label>
+    </div>
 
-        <button type="submit">Oblicz</button>
+    <button type="submit">Oblicz</button>
+</form>
 
-    </form>
 </body>
 </html>
