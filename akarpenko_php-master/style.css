@@ -4,7 +4,8 @@ body {
     margin: 40px auto;
     padding: 10px;
     color: #222;
-    background-color: #ffffff;
+    background: linear-gradient(135deg, #b5d9ff, #d7ecff, #f2f9ff);
+    background-attachment: fixed;
 }
 
 h1 {
@@ -37,7 +38,7 @@ select {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background: #fafafa;
+    background: #8fc3ff;
 }
 
 button {
