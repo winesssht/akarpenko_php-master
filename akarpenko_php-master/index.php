@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+// --- FUNKCJE ---
 
 function getBMI($weight, $height) {
     $h = $height / 100;
@@ -50,7 +52,9 @@ function getCarbs($calories, $protein, $fat) {
     return round($remaining / 4);
 }
 
-// obsługa formularza
+
+// --- OBRÓBKA FORMULARZA ---
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $gender   = $_POST["gender"] ?? "";
@@ -78,3 +82,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "Tłuszcze: $fat g<br>";
     echo "Węglowodany: $carbs g<br>";
 }
+?>
