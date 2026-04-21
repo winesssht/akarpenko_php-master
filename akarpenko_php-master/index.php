@@ -73,13 +73,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $fat      = getFat($target);
     $carbs    = getCarbs($target, $protein, $fat);
 
-    echo "<h2>Wyniki:</h2>";
-    echo "BMI: $bmi ($bmiLabel)<br>";
-    echo "BMR: $bmr<br>";
-    echo "TDEE: $tdee<br>";
-    echo "Kalorie docelowe: $target<br>";
-    echo "Białko: $protein g<br>";
-    echo "Tłuszcze: $fat g<br>";
-    echo "Węglowodany: $carbs g<br>";
+    echo '<div class="result-box">';
+    echo "<h2>Wyniki</h2>";
+    echo "<div class='result-line'>BMI: $bmi ($bmiLabel)</div>";
+    echo "<div class='result-line'>BMR: $bmr</div>";
+    echo "<div class='result-line'>TDEE: $tdee</div>";
+    echo "<div class='result-line'>Kalorie docelowe: $target</div>";
+    echo "<div class='result-line'>Białko: $protein g</div>";
+    echo "<div class='result-line'>Tłuszcze: $fat g</div>";
+    echo "<div class='result-line'>Węglowodany: $carbs g</div>";
+    echo '</div>';
+
+
 }
 ?>
