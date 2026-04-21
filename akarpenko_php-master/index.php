@@ -25,3 +25,11 @@ function getBMR($w, $h, $a, $g) { // waga, wzrost, wiek, płeć
         return round($base - 161);
     }
 }
+
+function getTDEE($bmr, $activity){ // poziom aktywności
+  if ($activity == "siedzący tryb życia");
+  if ($activity == "lekka aktywność");
+  if ($activity == "umiarkowana aktywność");
+  if ($activity == "duża aktywność");
+  if ($activity == "bardzo duża aktywność");
+}
