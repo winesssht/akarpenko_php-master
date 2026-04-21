@@ -57,3 +57,36 @@ function getCarbs($calories, $protein, $fat){ // kalorie, białko i tłuszcze
   if ($remaining < 0) return 0;
   return round($remaining / 4);
 }
+
+// obsługa formularza
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+// pobranie danych z formularza
+    $gender   = $_POST["gender"] ?? "";
+    $age      = (int) $_POST["age"];
+    $weight   = (float) $_POST["weight"];
+    $height   = (float) $_POST["height"];
+    $activity = $_POST["activity"] ?? "sedentary";
+    $goal     = $_POST["goal"] ?? "maintain";
+
+    // normalizacja płci
+    if ($gender === "male") $gender = "m";
+    if ($gender === "female") $gender = "f";
+// obliczenia
+    $bmi      = getBMI($weight, $height);
+    $bmiLabel = getBMILabel($bmi);
+    $bmr      = getBMR($weight, $height, $age, $gender);
+    $tdee     = getTDEE($bmr, $activity);
+    $target   = getTargetCalories($tdee, $goal);
+    $protein  = getProtein($weight, $goal);
+    $fat      = getFat($target);
+    $carbs    = getCarbs($target, $protein, $fat);
+// wyświetlenie wyników
+    echo "<h2>Wyniki:</h2>";
+    echo "BMI: $bmi ($bmiLabel)<br>";
+    echo "BMR: $bmr<br>";
+    echo "TDEE: $tdee<br>";
+    echo "Kalorie docelowe: $target<br>";
+    echo "Białko: $protein g<br>";
+    echo "Tłuszcze: $fat g<br>";
+    echo "Węglowodany: $carbs g<br>";
+}
