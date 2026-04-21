@@ -5,7 +5,7 @@ function getBMI($weight, $height) { // waga i wzrost w cm
     return round($weight / ($h * $h), 1);
 }
 
-function getBMILabel($bmi) {
+function getBMILabel($bmi) { // wartość BMI
     if ($bmi < 18.5) {
         return 'niedowaga';
     } elseif ($bmi < 25) {
