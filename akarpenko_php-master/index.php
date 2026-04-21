@@ -33,3 +33,9 @@ function getTDEE($bmr, $activity){ // poziom aktywności
   if ($activity == "duża aktywność");
   if ($activity == "bardzo duża aktywność");
 }
+
+function getTargetCalories($tdee, $goal) { // cel diety
+    if ($goal == "utrata wagi") return $tdee - 500;
+    if ($goal == "przyrost wagi") return $tdee + 300;
+    return $tdee;
+}
